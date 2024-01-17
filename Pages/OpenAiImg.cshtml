@@ -1,0 +1,26 @@
+﻿@page
+@model MyApp.Namespace.OpenAiImgModel
+@{
+    ViewData["Title"] = "OpenAiImg";
+}
+
+@inject Microsoft.SemanticKernel.Kernel _kernel
+
+<div class="text-center">
+    <h1 class="display-4">OpenAI Image Generator</h1>
+    <form method="post">
+        <div class="form-group">
+            <label for="phraseInput">Describe the image you want:</label>
+            <textarea asp-for="Phrase" class="form-control" id="phraseInput" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Generate Image</button>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+    {
+        <div class="mt-4">
+            <h3 class="display-5">Generated Image:</h3>
+            <img src="@Model.ImageUrl" class="img-thumbnail" alt="Generated Image" />
+        </div>
+    }
+</div>
