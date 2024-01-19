@@ -9,10 +9,10 @@ var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .Build();
 
-string _endpoint = configuration.GetSection("AppSettings")["endpoint"];
-string _apiKey = configuration.GetSection("AppSettings")["api-key"];
-string _dalleDeployment = configuration.GetSection("AppSettings")["dalle-deployment"];
-string _gptDeployment = configuration.GetSection("AppSettings")["gpt-deployment"];
+string? _endpoint = configuration.GetSection("AppSettings")["endpoint"];
+string? _apiKey = configuration.GetSection("AppSettings")["api-key"];
+string? _dalleDeployment = configuration.GetSection("AppSettings")["dalle-deployment"];
+string? _gptDeployment = configuration.GetSection("AppSettings")["gpt-deployment"];
 
 var builder = WebApplication.CreateBuilder(args);
 
